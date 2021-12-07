@@ -1,0 +1,978 @@
+body {
+    margin: 0;
+    border: 0;
+    padding: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    background-color: #E7E6E5;
+}
+
+.container {
+    width: 100%;
+    margin: 0 0;
+    /* height: 100%; */
+    padding-right: 0px;
+}
+
+.header .container {
+    min-height: 70px;
+}
+
+.header {
+    background-color: black;
+    width: 100%;
+    height: 70px;
+}
+
+.header img {
+    width: 200px;
+    height: 161px;
+    padding-left: 45px;
+    margin-top: -38px;
+}
+
+
+/* NAVEGAÇÃO DO SITE */
+
+.nav ul li {
+    display: inline-block;
+    margin-left: 40px;
+    font-size: 18px;
+}
+
+.nav a {
+    text-decoration: none;
+    color: white;
+}
+
+.nav ul {
+    margin: 0 auto;
+    padding: 22px;
+}
+
+.nav {
+    margin-top: 0px;
+    float: right;
+    margin-right: 100px;
+}
+
+a:hover,
+.nav {
+    /*DAR COR AO PASSAR O MOUSE SOBRE O ELEMENTO*/
+    color: aquamarine !important;
+    transition: color 1s cubic-bezier(0.06, 0.81, 0, 0.98), border-color 0.5s cubic-bezier(0.06, 0.81, 0, 0.98);
+}
+
+.header .nav a.atual {
+    /*ITEM DE MENU SELECIONADO*/
+    color: white;
+    font-weight: bold;
+}
+
+
+/* BOTÕES DE LOGIN E CADASTRAR */
+
+#btn_login {
+    background-color: #1E90FF;
+    float: right;
+    border: none;
+    width: 100px;
+    height: 70px;
+    font-size: 18px;
+}
+
+#btn_cadastrar {
+    background-color: #00BFFF;
+    float: right;
+    border: none;
+    width: 160px;
+    height: 70px;
+    font-size: 18px;
+}
+
+.efeito_btn {
+    background-color: #00BFFF;
+    cursor: pointer;
+    transition: color 1s cubic-bezier(0.06, 0.81, 0, 0.98), border-color 0.5s cubic-bezier(0.06, 0.81, 0, 0.98);
+    display: inline-block;
+}
+
+#btn_login:hover {
+    background: #00FFFF;
+}
+
+#btn_cadastrar:hover {
+    background-color: #1E90FF;
+}
+
+
+/* PRIMEIRA TELA DO INDEX(INICIAL) */
+
+.showcase {
+    background-image: url(../img/index.png);
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size:  cover;
+    width: 100%;
+    height: 630px;
+    text-align: center;
+    color: white;
+}
+
+.showcase .container {
+    padding-top: 120px;
+    width: 700px;
+    margin-left: 300px;
+}
+
+.showcase h1 {
+    margin-top: 0px;
+    font-size: 35;
+    color: white;
+    text-align: center;
+}
+
+.showcase p {
+    font-size: 25px;
+    text-align: center;
+}
+
+#btn_contato {
+    background: #00BFFF;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    height: 35px;
+    margin-top: 400px;
+    margin-left: 160px;
+}
+
+#btn_contato:hover {
+    background-color: #00BFFF;
+    color: #232323;
+    border: black 2px solid;
+    font-weight: bold;
+}
+
+.showcase .container img {
+    border-radius: 200px;
+    width: 250px;
+    border: black 3px solid;
+}
+
+
+/* SEGUNDA TELA DO INDEX(INICIO) */
+
+.showcase_2 {
+    width: 100%;
+    height: 540px;
+    text-align: center;
+    display: inline-block;
+    padding-top: 60px;
+    background: linear-gradient(to right, blue, aquamarine);
+}
+
+.showcase_2 h2 {
+    font-size: 45px;
+}
+
+.showcase_2 .container #esquerda {
+    height: 550px;
+    width: 400px;
+    margin-top: -40px;
+    float: left;
+    margin-left: 80px;
+}
+
+#esquerda h2,
+#esquerda p {
+    color: white;
+}
+
+#esquerda img {
+    width: 270px;
+    height: 180px;
+    border-radius: 300px;
+    border: black 3px solid;
+}
+
+.showcase_2 .container #meio {
+    height: 600px;
+    width: 380px;
+    margin-left: 10px;
+    float: left;
+}
+
+.showcase_2 .container #direita {
+    height: 530px;
+    width: 600px;
+    margin-right: 80px;
+    float: right;
+}
+
+#direita img {
+    width: 270px;
+    height: 180px;
+    border-radius: 300px;
+    border: black 3px solid;
+}
+
+.showcase_2 .grafico {
+    width: 100%;
+    height: 350px;
+    background: #232323;
+    border-radius: 5px;
+}
+
+
+/* TERCEIRA TELA DO INDEX(INICIO) */
+
+.showcase_3 {
+    width: 100%;
+    height: 620px;
+    display: inline-block;
+    padding-top: 50px;
+    background-image: url(../img/negocio.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -5px;
+}
+
+.showcase_3 .container {
+    margin-left: 30px;
+    width: 400px;
+    color: white;
+}
+
+.showcase_3 .container h1 {
+    width: 600px;
+    margin: 0px;
+    color: white;
+    font-size: 44px;
+}
+
+.showcase_3 .container span {
+    font-weight: bold;
+    margin: 0px;
+    font-size: 24px;
+}
+
+.showcase_3 .container p {
+    font-size: 20px;
+}
+
+.showcase_3 .container #conteudo_pagina_3 {
+    width: 600px;
+}
+
+
+/* QUARTA TELA DO INDEX(INICIO) */
+
+.showcase_4 {
+    width: 100%;
+    height: 550px;
+    padding-top: 40px;
+}
+
+.showcase_4 .container #direita {
+    float: right;
+}
+
+.showcase_4 .container #direita h1 {
+    width: 600px;
+    margin: 0;
+    color: #232323;
+    font-size: 44px;
+}
+
+.showcase_4 .container #direita span {
+    font-weight: bold;
+    color: #232323;
+    font-size: 24px;
+}
+
+.showcase_4 .container #direita p {
+    font-size: 20px;
+    color: #232323;
+}
+
+.showcase_4 .container #esquerda {
+    float: left;
+    margin-left: 40px;
+    margin-top: 0px;
+}
+
+.showcase_4 .container #esquerda img {
+    border: 100;
+    border-radius: 100;
+    width: 550px;
+    height: 400px;
+}
+
+#btn_contato_showcase4 {
+    background: #00BFFF;
+    color: black;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    height: 35px;
+    margin-top: 50px;
+    margin-left: 200px;
+}
+
+#btn_contato_showcase4:hover {
+    background-color: #00BFFF;
+    color: black;
+    border: black 2px solid;
+    font-weight: bold;
+}
+
+
+/* footer (rodapé) */
+
+.footer .container {
+    background-color: #232323;
+    width: 100% !important;
+    height: 195px;
+    border-top: #1E90FF 20px solid;
+    text-align: center;
+}
+
+.footer .container #conteudo {
+    color: white;
+}
+
+
+/* PAGINA SOBRE */
+
+
+/* SUSTÁBIL */
+
+.tela_preta {
+    background-color: rgba(0, 0, 0, 0.802);
+    width: 100%;
+    height: 490px;
+    padding-top: 140px;
+}
+
+.tela_preta h1 {
+    color: white;
+    margin-left: 100px;
+    font-size: 58px;
+}
+
+.tela_preta p {
+    margin-left: 300px;
+    color: white;
+    font-size: 34px;
+}
+
+.showcase_sobre {
+    background-image: url(../img/mapa\ vazamentos.jpg);
+    width: 100%;
+    height: 630px;
+}
+
+
+/* QUEM SOMOS */
+
+.showcase_quemsomos {
+    background-color: #232323;
+    width: 100%;
+    height: 930px;
+}
+
+.tela_preta2 {
+    background-color: #232323;
+    width: 100%;
+    height: 830px;
+    padding-top: 100px;
+}
+
+.tela_preta2 h1 {
+    color: white;
+    font-size: 58px;
+    margin-left: 39%;
+    margin-top: -75px;
+}
+
+.tela_preta2 p {
+    color: white;
+    font-size: 34px;
+    margin-left: 640px;
+}
+
+.showcase_quemsomos .tela_preta2 h2 {
+    color: white;
+    margin-bottom: 100px;
+}
+
+.imagem1 {
+    
+    margin-left: 123px;
+    height: 200px;
+    border-radius: 50px;
+    opacity: 30%;
+}
+.b1{
+    right: 180px;
+    position: relative;
+    top: 50px;
+    font-size: 15px;
+    color: white;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.imagem1:hover{
+    width: 12%;
+    opacity: 100%;
+    border-radius: 30%;
+    border:#00BFFF solid 3px;
+    transition: 0.90s;
+    }
+
+.imagem2 {
+    
+    margin-left: 90px;
+    height: 194px;
+    border-radius: 50px;
+    opacity: 30%;
+}
+.b2{
+    right: 180px;
+    position: relative;
+    top: 50px;
+    font-size: 17px;
+    color: white;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.imagem2:hover{
+    width: 12%;
+    opacity: 100%;
+    border-radius: 30%;
+    border:#00BFFF solid 3px;
+    transition: 0.90s;
+    }
+
+.imagem3 {
+    
+    margin-left: 35px;
+    height: 200px;
+    border-radius: 50px;
+    opacity: 30%;
+}
+
+.b3{
+    right: 140px;
+    position: relative;
+    top: 50px;
+    font-size: 17px;
+    color: white;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.imagem3:hover{
+    width: 12%;
+    opacity: 100%;
+    border-radius: 30%;
+    border:#00BFFF solid 3px;
+    transition: 0.90s;
+    }
+
+.imagem4 {
+    
+    margin-left: 123px;
+    height: 200px;
+    border-radius: 50px;
+    margin-top: 0px;
+    opacity: 30%;
+}
+
+.b4{
+    right: 180px;
+    position: relative;
+    top: 50px;
+    font-size: 17px;
+    color: white;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.imagem4:hover{
+    width: 12%;
+    opacity: 100%;
+    border-radius: 30%;
+    border:#00BFFF solid 3px;
+    transition: 0.90s;
+    }
+
+.imagem5 {
+    
+    margin-left: 70px;
+    height: 194px;
+    border-radius: 50px;
+    opacity: 30%;
+}
+
+.imagem5:hover{
+    width: 12%;
+    opacity: 100%;
+    border-radius: 30%;
+    border:#00BFFF solid 3px;
+    transition: 0.90s;
+    }
+
+.b5{
+    right: 160px;
+    position: relative;
+    top: 50px;
+    font-size: 17px;
+    color: white;
+    border-radius: 6px;
+    padding: 2px;
+}
+.imagem6 {
+    margin-left: 110px;
+    height: 200px;
+    border-radius: 50px;
+    opacity: 30%;
+    
+}
+
+
+.imagem6:hover{
+width: 12%;
+opacity: 100%;
+border-radius: 30%;
+border:#00BFFF solid 3px;
+transition: 0.90s;
+}
+
+.b6{
+    right: 180px;
+    position: relative;
+    top: 50px;
+    font-size: 17px;
+    color: white;
+    border-radius: 6px;
+    padding: 2px;
+}
+
+.showcase_quemsomos h2 {
+    color: red;
+    margin-left: 70px;
+    height: 100px;
+    margin-left: 35px;
+    margin-top: -40px;
+}
+
+.tela_preta2 ul li {
+    display: inline-block;
+}
+
+.tela_preta2 ul li h2 {
+    padding-top: 50px;
+    /* text-align: justify; */
+    margin-right: 250px;
+}
+
+.td{
+    width: 87%;
+    margin-right: 10%;
+    margin-left: 10%;
+
+}
+/* 
+.showcase_quemsomos span {
+    margin-right: -100px;
+} */
+
+.showcase_quandosurgimos {
+    background-color: blue;
+    width: 100%;
+    height: 530px;
+}
+
+.tela_preta4 {
+    background-color: dodgerblue;
+    width: 100%;
+    height: 530px;
+    padding-top: 100px;
+}
+
+.tela_preta4 h1 {
+    color: white;
+    font-size: 58px;
+    margin-left: 800px;
+    margin-top: -110px;
+}
+
+.tela_preta4 p {
+    color: white;
+    font-size: 34px;
+    margin-left: 640px;
+}
+
+
+/* ENTRA AS PAGINAS(NEWS) */
+
+.news {
+    width: 100%;
+    height: 100px;
+    background-color: black;
+}
+
+.news h1 {
+    float: left;
+    color: white;
+    margin-left: 25px;
+}
+
+.news form {
+    float: right;
+    margin-top: 34px;
+}
+
+.news input {
+    height: 25px;
+    width: 250px;
+}
+
+#enviar {
+    border: none;
+    height: 31px;
+    color: white;
+    margin-right: 25px;
+}
+
+
+/* VALORES */
+
+.valores {
+    margin-top: 40px;
+    text-align: center;
+    width: 900px;
+    height: 430px;
+    margin-left: 60px;
+}
+
+.valores ul {
+    list-style: none;
+    display: flex;
+}
+
+.valores ul li {
+    margin-left: 140px;
+}
+
+.valores img {
+    width: 140px;
+}
+
+.valores .container {
+    margin-left: 100px;
+}
+
+.valores h3 {
+    font-size: 24px;
+}
+
+.valores p {
+    font-size: 18px;
+}
+
+
+/* TELA CONTATO */
+
+.showcase_contato {
+    background-image: url(../img/gif_time.gif);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    height: 575px;
+}
+
+.tela_preta3 {
+    background-color: rgba(0, 0, 0, 0.809);
+    width: 100%;
+    height: 500px;
+    padding-top: 75px;
+    text-align: center;
+}
+
+.tela_preta3 h1 {
+    color: white;
+    font-size: 40px;
+}
+
+.tela_preta3 input {
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 10px;
+    border: white 5px solid;
+    color: white;
+    height: 35px;
+    width: 600px;
+    font-size: 18px;
+}
+
+.tela_preta3 ::placeholder {
+    color: white;
+    text-align: center;
+    font-size: 18px;
+}
+
+.tela_preta3 #inp_mensagem {
+    height: 120px;
+}
+
+.tela_preta3 #btn_enviar_contato {
+    border: 0;
+    width: 200px;
+    height: 35px;
+    color: white;
+    border-radius: 10px;
+    border: white 3px solid;
+}
+
+#btn_enviar_contato:hover {
+    background-color: rgb(255, 255, 255);
+    color: #232323;
+    border: rgb(108, 108, 255) 3px solid;
+    font-weight: bold;
+}
+
+
+/* TELA DE LOGIN */
+
+.showcase_login {
+    width: 100%;
+    height: 527px;
+}
+
+.showcase_login .container {
+    width: 1100px;
+    height: 500px;
+    margin-top: 40px;
+    margin-left: 120px;
+    display: flex;
+    border-radius: 10px;
+}
+
+.showcase_login .container #lado_esquerdo_login {
+    width: 550px;
+    height: 480px;
+    background-color: #c0c0c0;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    text-align: center;
+    padding-top: 20px;
+    padding-bottom: 80px;
+}
+
+#lado_esquerdo_login img {
+    width: 120px;
+    height: 120px;
+}
+
+#lado_esquerdo_login .inp_loging {
+    width: 300px;
+    height: 25px;
+    border: #5c5858 0.2px solid;
+    text-align: center;
+    border-radius: 7px;
+}
+
+#lado_esquerdo_login ::placeholder {
+    text-align: center;
+}
+
+#lado_esquerdo_login span {
+    font-size: 12px;
+}
+
+#lado_esquerdo_login #lembrar_senha {
+    margin-right: 80px;
+}
+
+#lado_esquerdo_login #btn_entrar_login {
+    border: none;
+    width: 100px;
+    height: 25px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(26, 161, 161);
+    float: left;
+    margin-left: 125px;
+}
+
+#lado_esquerdo_login #btn_criar_login {
+    border: none;
+    width: 120px;
+    height: 25px;
+    font-weight: bold;
+    color: white;
+    background-color: rgb(26, 161, 161);
+    margin-right: 10px;
+}
+
+#lado_esquerdo_login #btn_criar_login:hover {
+    background-color: rgb(18, 107, 107);
+    color: white;
+    font-weight: bold;
+}
+
+#lado_esquerdo_login #btn_entrar_login:hover {
+    background-color: rgb(10, 59, 59);
+    color: white;
+    font-weight: bold;
+}
+
+.showcase_login .container #lado_direito_login {
+    width: 550px;
+    height: 580px;
+    background-image: url(../img/cidade.jpg);
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    float: right;
+}
+
+#lado_direito_login #tom_escuro {
+    width: 550px;
+    height: 580px;
+    background: rgba(0, 0, 0, 0.414);
+    float: right;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+
+
+/* TELA DE ORÇAMENTO */
+
+.showcase_simulador {
+    width: 100%;
+    max-height: 980px;
+    background-color: #2a2a2a;
+    padding-top: 50px;
+    padding-bottom: 130px;
+}
+
+.showcase_simulador h1 {
+    font-size: 70px;
+    margin-left: 220px;
+    color: #00BFFF;
+}
+
+.showcase_simulador .container {
+    width: 960px;
+    max-height: 980px;
+    display: flex;
+    margin-left: 155px;
+}
+
+.planos {
+    width: 200px;
+    height: 260px;
+    background-color: white;
+    margin-left: 100px;
+    border-radius: 28px;
+    border: #00BFFF 5px solid;
+}
+
+.planos h2 {
+    margin-left: 37px;
+    font-size: 36px;
+    margin-top: 2px;
+    color: #232323;
+}
+
+.planos h4 {
+     font-size: 35px;
+     margin: 0;
+     color: #232323;
+     text-align: center;
+}
+
+.fundobranco{
+    background-color: rgba(255, 255, 255, 0.842);
+    color: black;
+    margin-top: -200px;
+    margin-left: 215px;
+    text-align: center;
+    width: 247px;
+    border-radius: 3px;
+    border: 3px #00BFFF solid;
+    display: none;
+}
+.showcase_simulador ul li {
+    font-weight: bold;
+    margin-left: -8px;
+}
+
+.showcase_simulador .container #btn_veja1 {
+    color: white;
+    border: none;
+    font-weight: bold;
+    width: 180px;
+    margin-left: 7px;
+    height: 35px;
+    font-size: 20px;
+}
+
+#btn_veja1:hover {
+    background: rgb(64, 64, 255)
+}
+
+.showcase_simulador .container #btn_veja2 {
+    color: white;
+    border: none;
+    font-weight: bold;
+    width: 180px;
+    margin-left: 7px;
+    height: 35px;
+    font-size: 20px;
+}
+
+#btn_veja2:hover {
+    background: rgb(64, 64, 255)
+}
+
+.showcase_simulador .container #btn_veja3 {
+    color: white;
+    border: none;
+    font-weight: bold;
+    width: 180px;
+    margin-left: 7px;
+    height: 35px;
+    font-size: 20px;
+}
+
+#btn_veja3:hover {
+    background: rgb(64, 64, 255)
+}
+
+.btn{
+    color: black;
+    background-color: rgb(26, 161, 161);
+}
+
+.btn:hover{
+    border: solid 2px black;
+    background-color: dodgerblue;
+    transition: 1.9s;
+    height: 25px;
+    border-radius: 6px;
+}
+
+.msg_erro{
+    margin-top: 20px;
+    color: red;
+}
+
+.extra{
+    margin-top: 160px;
+    margin-left: 60px;
+}

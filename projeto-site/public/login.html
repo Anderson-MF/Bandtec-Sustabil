@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faça seu login/Cadastre-se</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/logofelipe1.png">
+    <link rel="stylesheet" href="css/Global.css">
+</head>
+
+<body>
+
+    <div class="showcase_login">
+        <div class="container">
+            <div id="lado_esquerdo_login">
+
+                <a href="index.html"> <img src="img/logofelipe1.png" style="height: 200px; width: 200px;" alt=""></a>
+
+                <h3>Bem vindo de volta, por favor, entre com sua conta:</h3>
+
+
+                <form id="form_login" method="post" onsubmit="return entrar()">
+
+                    <input type="text" class="inp_loging" name="login" placeholder="login"><br><br>
+
+                    <input type="password" class="inp_loging" name="senha" placeholder="senha"><br><br>
+
+                    <button id="btn_entrar" class="btn">Entrar</button>
+
+                    <button class="btn" onclick="criar()">Crie sua conta</button>
+
+                </form>
+            </div>
+
+            <div id="lado_direito_login">
+                <div id="tom_escuro">
+                    <div class="extra">
+                        <div id="div_erro" class="msg_erro">
+                        </div>
+                        <img src="img/aguarde.gif" id="img_aguarde" style="display: none; height:240px;">
+                        <!--style="display: none;"-->
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+</body>
+
+</html>
+<script>
+    function criar() {
+        window.open("meu_cadastro.html");
+    }
+
+
+    function entrar() {
+        aguardar();
+        var formulario = new URLSearchParams(new FormData(form_login));
+        fetch("/usuarios/autenticar", {
+            method: "POST",
+            body: formulario
+        }).then(resposta => {
+
+            if (resposta.ok) {
+
+                resposta.json().then(json => {
+
+                    sessionStorage.login_usuario_meuapp = json.login;
+                    sessionStorage.nome_usuario_meuapp = json.login;
+
+                    window.location.href = 'tempo-real.html';
+                });
+
+            } else {
+
+                console.log('Erro de login!');
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+                    finalizar_aguardar(texto);
+                });
+            }
+        });
+
+        return false;
+    }
+
+    function aguardar() {
+        btn_entrar.disabled = true;
+        img_aguarde.style.visibility = 'visible';
+        div_erro.style.visibility = 'hidden';
+    }
+
+    function finalizar_aguardar(resposta) {
+        btn_entrar.disabled = false;
+        img_aguarde.style.visibility = 'hidden';
+        div_erro.style.visibility = 'visible';
+        div_erro.innerHTML = resposta;
+    }
+
+</script>

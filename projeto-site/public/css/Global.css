@@ -1,0 +1,15 @@
+::-webkit-scrollbar{
+    width: 5px;
+    background-color: black;
+  }
+  
+  /* a alça de rolagem arrastável. */
+  ::-webkit-scrollbar-thumb{
+    background-color:white;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+      background-color:#00BFFF;
+  }
+ 
+  

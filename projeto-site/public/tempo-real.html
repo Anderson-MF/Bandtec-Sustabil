@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <!-- Start of bandtecsustabil Zendesk Widget script -->
+    <script id="ze-snippet"
+        src="https://static.zdassets.com/ekr/snippet.js?key=a44f471a-ba9f-41ff-a144-b78cae705ff5"> </script>
+    <!-- End of bandtecsustabil Zendesk Widget script -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto IoT - Tempo Real</title>
+    <link rel="stylesheet" href="css/dashboards.css">
+    <link rel="icon" href="img/logofelipe1.png">
+
+    <!-- script do google charts -->
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript" src="funcoes.js"></script>
+
+    <style>
+        /* Classes CSS para exemplos de alertas */
+
+        .alerta-baixo{
+            background-color: #008037;
+        }
+
+        .alerta-pequeno{
+            background-color: #ffff00;
+        }
+
+        .alerta-medio{
+            background-color: #fbab16;
+        }
+
+        .alerta-alto {
+            background-color:  #ff4700;
+        }
+
+        .alerta-critico{
+            background-color: #ff0000;
+        }
+
+        .alerta-maximo{
+            background-color: purple;
+        }
+
+    </style>
+</head>
+
+<body onload="atualizacaoPeriodica()">
+    <!--header inicio-->
+
+    <div class="header">
+        <div class="container">
+            <h1 class="titulo"><span class="highlight">Sustabil</span></h1>
+            <div class="usuario">
+                <h3>Olá, <b id="b_usuario"></b></h3>
+            </div>
+            <div class="nav">
+                <ul>
+                    <li><a href="grafico-chartjs.html">Gráfico de histórico recente</a></li>
+                    <li><a href="#" class="highlight" onclick="logoff()">LOGOUT</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--header fim-->
+
+    <div class="dashboard">
+        <div class="container">
+
+
+
+            <div class="caminhao">
+                <h4>Sensor <span name="namesensor" id="fksensor" value="1">1</span></h4>
+                <div class="valores">
+                    <div class="valor" id="div_umidade">Umidade sendo obtida...</div>
+                </div>
+                <div class="alertas">
+                    <div class="alerta" id="div_alerta_temperatura"> </div>
+                    <div class="alerta_umidd" id="div_alerta_umidade"></div>
+                </div>
+            </div>
+
+            <div class="caminhao">
+                <h4>Sensor <span name="namesensor" id="fksensor" value="2">2</span></h4>
+                <div class="valores">
+                    <div class="valor" id="div_umidade2">Umidade sendo obtida...</div>
+                </div>
+
+                <div class="alertas">
+                    <div class="alerta" id="div_alerta_temperatura2"></div>
+                    <div class="alerta_umidd" id="div_alerta_umidade2"></div>
+                </div>
+            </div>
+
+            <div class="caminhao">
+                <h4>Sensor <span name="namesensor" id="fksensor" value="3">3</span></h4>
+                <div class="valores">
+                    <div class="valor" id="div_umidade3">Umidade sendo obtida...</div>
+                </div>
+                <div class="alertas">
+                    <div class="alerta" id="div_alerta_temperatura3"></div>
+                    <div class="alerta_umidd" id="div_alerta_umidade3"></div>
+                </div>
+            </div>
+
+            <div class="caminhao">
+                <h4>Sensor <span name="namesensor" id="fksensor" value="4">4</span></h4>
+                <div class="valores">
+                    <div class="valor" id="div_umidade4">Umidade sendo obtida...</div>
+                </div>
+
+                <div class="alertas">
+                    <div class="alerta_umidd" id="div_alerta_umidade4"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+</body>
+
+
+<script>
+
+    let usuario;
+
+    verificar_autenticacao();
+
+    // só mexer se quiser alterar o tempo de atualização
+    // ou se souber o que está fazendo!
+    function atualizacaoPeriodica() {
+        obterdadosporcaminhao(1);
+        obterdadosporcaminhao(2);
+        obterdadosporcaminhao(3);
+        obterdadosporcaminhao(4);
+        setTimeout(atualizacaoPeriodica, 5000);
+    }
+
+
+
+    function obterdadosporcaminhao(fksensor) {
+        //aguardar();
+        fetch(`/leituras/tempo-real/${fksensor}`)
+            .then(resposta => {
+
+                if (resposta.ok) {
+                    resposta.json().then(function (resposta) {
+
+                        console.log(`Dados recebidos: ${JSON.stringify(resposta)}`);
+
+                        // aqui, após registro. use os nomes 
+                        // dos atributos que vem no JSON 
+                        var dados = {
+                            umidade: resposta.umidade
+                        }
+
+                        alertar(resposta.umidade, fksensor);
+                        atualizarTela(dados, fksensor);
+                    });
+                } else {
+
+                    console.error('Nenhum dado encontrado ou erro na API');
+                }
+            })
+            .catch(function (error) {
+                console.error(`Erro na obtenção dos dados do caminhao p/ gráfico: ${error.message}`);
+            });
+    }
+
+    function alertar(umidade, fksensor) {
+        // padrão para meu alerta
+        var limites = {
+            max_umidade: 81,
+            min_umidade: 25,
+        };
+
+        // zerar aviso de mensagem
+        var mensagem_umidade = '';
+        var classe_umidade = 'alerta_umidd';
+
+        if (umidade < 25) {
+            mensagem_umidade = 'Umidade Padrão! <br>';
+            classe_umidade = 'alerta_umidd alerta-baixo';
+        }
+
+        if (umidade >= 25 && umidade <= 39) {
+            mensagem_umidade = 'Umidade Padrão! <br>';
+            classe_umidade = 'alerta_umidd alerta-baixo';
+        }
+
+        if (umidade >= 40 && umidade <= 45) {
+            mensagem_umidade = 'Possivel vazamento! <br>';
+            classe_umidade = 'alerta_umidd alerta-pequeno'; 
+        }
+
+        if (umidade >= 46 && umidade <= 51) {
+            mensagem_umidade = 'vazamento Médio! <br>';
+            classe_umidade = 'alerta_umidd alerta-medio'; 
+        }
+
+        if (umidade >= 52 && umidade <= 57) {
+            mensagem_umidade = 'vazamento Alto! <br>';
+            classe_umidade = 'alerta_umidd alerta-alto'; 
+        }
+
+        if (umidade >= 58 && umidade <= 63) {
+            mensagem_umidade = 'vazamento Crítico! <br>';
+            classe_umidade = 'alerta_umidd alerta-critico'; 
+        }
+
+        if (umidade >= 64 && umidade <= 80) {
+            mensagem_umidade += 'Umidade alta demais! Rompimento total <br>';
+            classe_umidade = 'alerta_umidd alerta-maximo';
+        }
+
+        if (umidade >= limites.max_umidade) {
+            mensagem_umidade += 'Umidade alta demais! Rompimento total <br>';
+            classe_umidade = 'alerta_umidd alerta-maximo';
+        }
+
+        // escolhendo qual alterar
+        var div_umidade_alterar
+
+        if (fksensor == 1) {
+            div_umidade_alterar = div_alerta_umidade
+        } else if (fksensor == 2) {
+
+            div_umidade_alterar = div_alerta_umidade2
+        } else if (fksensor == 3) {
+
+            div_umidade_alterar = div_alerta_umidade3
+        } else if (fksensor == 4) {
+
+            div_umidade_alterar = div_alerta_umidade4
+        }
+
+        // alterando
+        div_umidade_alterar.innerHTML = mensagem_umidade;
+        div_umidade_alterar.className = classe_umidade;
+    }
+
+    // só altere aqui se souber o que está fazendo!
+    function atualizarTela(dados, fksensor) {
+        console.log('iniciando atualização da tela...');
+
+        // escolhendo qual alterar
+        var div_umidade_alterar
+
+        if (fksensor == 1) {
+            div_umidade_alterar = div_umidade
+        } else if (fksensor == 2) {
+
+            div_umidade_alterar = div_umidade2
+        } else if (fksensor == 3) {
+
+            div_umidade_alterar = div_umidade3
+        } else if (fksensor == 4) {
+
+            div_umidade_alterar = div_umidade4
+        }
+
+
+        div_umidade_alterar.innerHTML = `Umidade: ${dados.umidade}%`;
+
+
+
+    }
+
+
+    function sendData() {
+        var http = new XMLHttpRequest();
+        http.open('GET', 'http://localhost:9000/api/sendData', false);
+        http.send(null);
+    }
+
+    setInterval(() => {
+        sendData();
+    }, 5000);
+</script>

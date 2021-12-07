@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+</head>
+<body> 
+    <h1 style="color: rgb(17, 6, 177); background-color: rgb(41, 151, 41); width:900px">Quanto perderá de capital, por ano, com o desperdício de água? </h1>
+
+    Coloque quantos km² você quer instalar da nossa tecnologia na sua cidade!
+    <input placeholder="km²" id="valor1" type="text">
+
+<button onclick=calculo()>calcular</button> <br><br>
+
+<div id="div_mens"></div>
+</body>
+</html>
+<script>
+    
+function calculo() {
+ var estimativa = valor1.value * 200000;
+    div_mens.innerHTML =`<b>${estimativa}</b>: Valor estimado, em reais, gerado pelo desperdício de água!<br><br>
+  <b> ${valor1.value * 450000} </b>: Valor da instalação!  <br><br>
+  <b> ${valor1.value * 17000} </b>: Valor mensal para analisar o sistema e informar pontos específicos onde existem vazamentos. 
+    <i><h2 style=color:blue;>Um investimento a médio longo prazo que faz total diferença ecologica e economicamente!!!</h2></i>` ; 
+}
+</script>

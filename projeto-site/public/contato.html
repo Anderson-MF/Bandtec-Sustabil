@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contato</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/logofelipe1.png">
+    <link rel="stylesheet" href="css/Global.css">
+    <link rel="stylesheet" href="css/Global2.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+
+            <button class="efeito_btn" id="btn_cadastrar" onclick="cadastrar()"><b>Cadastrar</b></button>
+            <button class="efeito_btn" id="btn_login" onclick="login()">Login</button>
+
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="sobre.html">SOBRE NÓS</a></li>
+                    <li><a href="contato.html" class="atual">CONTATO</a></li>
+                    <li><a href="orcamento.html">ORÇAMENTO</a></li>
+                </ul>
+            </div>
+
+            <div class="imagem">
+                <a href="index.html"> <img src="./img/logofelipe1.png" alt="" style="cursor: pointer;"></a>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- PRIMEIRA TELA CONTATO -->
+    <div class="showcase_contato">
+        <div class="container">
+            <div class="tela_preta3">
+                <h1>Fale conosco</h1>
+                <input class="inp_estilo" id="inp_nome" placeholder="Seu nome"> <br> <br>
+                <input class="inp_estilo" id="inp_email" placeholder="Endereço de e-mail"> <br> <br>
+                <input class="inp_estilo" id="inp_mensagem" placeholder="Sua mensagem"> <br> <br>
+                <button class="efeito_btn" onclick="enviar()" id="btn_enviar_contato">ENVIAR</button>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <div class="footer">
+        <div class="container">
+            <div id="conteudo">
+                <h3>Sustábil</h3> <br> Rua Haddock Lobo, 595 - Cerqueira César <br> São Paulo - SP - Brasil <br> Todos os direitos são reservados ©
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
+
+<script>
+    function enviar() {
+        var nome = inp_nome.value
+        var email = inp_email.value
+        var mensagem = inp_mensagem.value
+
+        if (nome == "" || email == "" || mensagem == "") {
+            alert('Campos inválidos, insira um valor valido!');
+            inp_nome.value = "";
+            inp_email.value = "";
+            inp_mensagem.value = "";
+        } else {
+            alert('Sua mensagem foi enviada!');
+            inp_nome.value = "";
+            inp_email.value = "";
+            inp_mensagem.value = "";
+        }
+    }
+    // FUNÇÃO PARA QUANDO APERTAR O BOTTAO CADASTRAR, IR PRA A PAGINA CADASTRAR
+    function cadastrar() { //FUNÇÃO CADASTRAR
+        window.open("meu_cadastro..html"); //WINDOW = PAGINA // OPEN = ABRIR, FUNÇÃO ONDE ABRE A PAGINA "CADASTRAR.HTML"
+    }
+
+    function login() { //FUNÇÃO LOGIN
+        window.open("login.html"); //COMANDO PARA ABRIR A PAGINA "LOGIN.HTML"
+    }
+</script>

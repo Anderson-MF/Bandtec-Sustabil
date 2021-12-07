@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/estilo.css">
+    <link rel="img_titulo" href="">
+    <title>Sustabil</title>
+</head>
+
+<body>
+    <div class="logo_titulo">
+    
+        <img src="imagens/logo.png" alt="logo" id="imagen" >
+    </div>
+
+    <div class="container">
+        <h3>Insira a área do seu local M²</h3>
+        <input type="number" id="valor1" placeholder="insira os metros" ><br> <!-- type usa para apenas aceitar numeros e não aceitar letras-->
+        <button onclick="calcular()" id="btn_calcular">Calcule</button><br><br>
+        <div id="div_teste"></div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    
+    function calcular() {
+     var estimativa = valor1.value * 200000;
+        div_teste.innerHTML =`${estimativa} Valor estimado, em reais, gerado pelo desperdício de água!<br><br>
+      ${valor1.value * 450000}  Valor da instalação!  <br><br>
+       ${valor1.value * 17000}  Valor mensal para analisar o sistema e informar pontos específicos onde existem vazamentos. 
+        Um investimento a médio longo prazo que faz total diferença ecologica e economicamente!!!` ; 
+    }
+    </script>

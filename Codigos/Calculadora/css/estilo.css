@@ -1,0 +1,86 @@
+body{
+align-items: center;/*comando se usa para alinhar  */
+justify-content: center;/*esse comando esta alinhando a div container */
+margin: 0;
+padding: 0;
+font-family: Arial, Helvetica, sans-serif;
+color:white; /*aqui nesta linha alteramos a cor de todas as fontes da pagina*/
+font-size: 20px; 
+background-color:#0170B3; /*altemos a cor de fundo da pagina*/
+}
+
+.logo_titulo{  /* aqui chama a div logo titulo do html  */
+margin-left: 48%; /*largura da margin da div logo  */
+font-size: 23px;/*altura da fonte da div logo */
+;
+}
+
+#imagen{/* aqui alteremos o tamanho da imagen do html largura e etc....*/
+    width: 250px;
+    margin-left: -84px;
+    margin-top: -24px;
+    margin-bottom: 0px;
+}
+
+.container{  /*aqui chama o container do html  */
+    font-family: Arial, Helvetica, sans-serif;
+    position: absolute;
+    border-radius: 12px;
+    top: 50%;
+    left: 0;
+    right: 0;
+    align-items: center;
+    text-align: center;
+    width: 659px;
+    height: 54vh;
+    padding: 35px;
+    margin: -156px auto 0 auto;
+    background-color:	#32CD32;
+}
+
+.container input[type=number]:focus{
+    outline: none;
+    color:honeydew;
+}
+
+.container input[type=number]{
+    display: block;
+    padding: 2px 10px;
+    width: 100%;
+    background-color: transparent;
+    border: none;
+    border-bottom:white 2px solid;
+    color: white;
+    outline: none;
+text-align: center;  /* esse comando usa para centralizar o texto da div */
+}
+
+input[type=number]::-webkit-inner-spin-button { /*aqui alteramos o imput do html */
+    -webkit-appearance: none; /*tira a parte de setas do input tipe number */
+} 
+
+
+.container #btn_calcular{
+    cursor: pointer; /*dedinho do clique*/
+    border-radius: 11px; /*arredondamento da borda so botão */
+    height: 47px; /*altura do botão */
+    width: 40%;  /*largura do botão */
+    font-family: Arial, Helvetica, sans-serif; /*fontes que talvez o site não exiba tem 3 caso ele nçaoi exiba a 1 ele exibe a 2 */
+    color:grey; /* letra do botão sem a animação do mouse */
+    font-size: 20px; /* tamanho da letra do botão*/
+    transition: 0.2s; /* transição de uma classe para a outra */
+}
+
+.container #btn_calcular:hover {/*hover é quando vc passa o mouse em algo e ele faz uma certa animação */
+    transform: scale(1.1); /* é oque da o efeito de aumentar no botão */
+    transition: 0.2s;  /* transição de uma classe para a outra */
+    background-color:#1E90FF; /* cor de fundo da animação do botão */
+    border: white solid 2px ;  /*borda do botão o comando solid faz com que a cor da borda fique por ingual ao certo total de tamanho colocado  */
+    color:	white; /*cor do texto do botão */
+}
+
+::placeholder{
+color: white;
+
+
+}

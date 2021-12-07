@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="pt">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Orçamento</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="icon" href="img/logofelipe1.png">
+    <link rel="stylesheet" href="css/Global.css">
+    <link rel="stylesheet" href="css/Global2.css">
+</head>
+
+<body>
+    <div class="header">
+        <div class="container">
+
+            <button class="efeito_btn" id="btn_cadastrar" onclick="cadastrar()"><b>Cadastrar</b></button>
+            <button class="efeito_btn" id="btn_login" onclick="login()">Login</button>
+
+            <div class="nav">
+                <ul>
+                    <li><a href="index.html">INICIO</a></li>
+                    <li><a href="sobre.html">SOBRE NÓS</a></li>
+                    <li><a href="contato.html">CONTATO</a></li>
+                    <li><a href="orcamento.html" class="atual">ORÇAMENTO</a></li>
+                </ul>
+            </div>
+
+            <div class="imagem">
+                <a href="index.html"> <img src="./img/logofelipe1.png" alt="" style="cursor: pointer;"></a>
+            </div>
+        </div>
+    </div>
+    <div class="showcase_simulador">
+        <h1>FAÇA SEU ORÇAMENTO AQUI</h1>
+        <div class="container">
+            <div id="exibir" style="display: flex;">
+                <div id="plano1">
+                    <div class="planos">
+
+                        <h2>Plano 1</h2>
+                        <ul>
+                            <li>Bairros mais populosos</li>
+                            <li>Máximo 40km</li>
+                            <li>Por R$1.035,000</li>
+                        </ul>
+                        
+                        <button class="efeito_btn" onclick="calcular1()" id="btn_veja1">Assine</button>
+                        <div id="div_teste" style="color: red;"></div>
+                    </div>
+                </div>
+
+
+
+
+                <div id="plano2">
+                    <div class="planos">
+                        <h2>Plano 2</h2>
+                        <ul>
+                            <li>Bairros menos populosos</li>
+                            <li>Máximo 20km</li>
+                            <li>Por R$517.500</li>
+                        </ul>
+
+                        <button class="efeito_btn" onclick="calcular2()" id="btn_veja2">Assine</button>
+                    </div>
+                </div>
+                <div id="idpersonalizado" style="display: block;">
+                    <div class="planos">
+                        <h4>Personalize</h4>
+                        <ul>
+                            <li>
+                                Personalize do seu jeito
+                            </li>
+                        </ul>
+                        <input style="margin-left: 7.5px; text-align: center;" id="ipn_simulador" type="number" placeholder="Insira metros"><br>
+                        <br>
+                        <button class="efeito_btn" onclick="calcular()" id="btn_veja2">Calcular</button><br><br>
+                        <button class="efeito_btn" onclick="calcular3()" id="btn_veja3" style="display: none;">Assine</button>
+                        <div class="fundobranco" id="div_calculadora"></div>
+                        <!-- <div class="fundobranco"  style="margin-left: 160%; margin-top: -105px; width: 100px;" id="div_calculadora2"></div> -->
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="footer">
+        <div class="container">
+            <div id="conteudo">
+                <h3>Sustábil</h3>
+                Rua Haddock Lobo, 595 - Cerqueira César <br> São Paulo - SP - Brasil <br> Todos os direitos são reservados ©
+            </div>
+        </div>
+    </div>
+
+
+
+    <script>
+        function calcular1() {
+            window.open("meu_cadastro.html");
+        }
+        function calcular2() {
+            window.open("meu_cadastro.html");
+        }
+        function calcular3() {
+            window.open("meu_cadastro.html");
+        }
+
+
+        function calcular() {
+            var sensor = Number(ipn_simulador.value / 20).toFixed(0);
+            var preço = 575;
+            var mensal = 950
+            var lucro = Number(16000 - ( mensal * sensor))
+            if (ipn_simulador.value < 20 && ipn_simulador.value >= 0) {
+                sensor = 1;
+                
+            }
+            if (ipn_simulador.value > 0) {
+
+                div_calculadora.innerHTML = `A quantidade de sensores necessário será de: ${sensor}`
+                div_calculadora.innerHTML += `<br>O valor da instalação de ${sensor} sensor(es) será de R$${(sensor * preço)} <br><br>valor da mensalidade R$${sensor * mensal} <br><br>
+                Evitando um prejuizo de 16.000 por mês a cada km, e tendo um lucro de R$${ lucro } `
+                div_calculadora.style.display = "block";
+                div_calculadora.style.display += "block";
+                btn_veja3.style.display = "block";
+            } else if (ipn_simulador.value <= 0) {
+                alert('Valor invalido, insira um valor');
+            } 
+            
+
+
+
+
+        }
+
+
+        // FUNÇÃO PARA QUANDO APERTAR O BOTTAO CADASTRAR, IR PRA A PAGINA CADASTRAR
+        function cadastrar() { //FUNÇÃO CADASTRAR
+            window.open("meu_cadastro.html"); //WINDOW = PAGINA // OPEN = ABRIR, FUNÇÃO ONDE ABRE A PAGINA "CADASTRAR.HTML"
+        }
+
+        function login() { //FUNÇÃO LOGIN
+            window.open("login.html"); //COMANDO PARA ABRIR A PAGINA "LOGIN.HTML"
+        }
+    </script>
